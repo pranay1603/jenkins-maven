@@ -2,7 +2,7 @@ pipeline {
     agent { label 'mydocker'}
     stages {
         stage('pull from git') {
-            step {
+            steps {
                  git 'https://github.com/pranay1603/jenkins-maven.git'
             } 
         }
