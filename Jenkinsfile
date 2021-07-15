@@ -7,17 +7,17 @@ pipeline {
             } 
         }
         stage('test image nd creating package') {
-            step {
+            steps {
                 sh 'mvn package'
             }
         }
         stage('archive artifact') {
-            step {
+            steps {
                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             }
         }
         stage('creating graph') {
-            step {
+            steps {
                 junit 'target/surefire-reports/*.xml'
             }
         }
